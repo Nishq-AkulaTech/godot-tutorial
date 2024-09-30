@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://djn0jkehunl5y"]
+
+[ext_resource type="Script" path="res://agent.gd" id="1_4wgts"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuufl"]
+albedo_color = Color(0.22, 1, 0.272, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q4ap4"]
+material = SubResource("StandardMaterial3D_fuufl")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sqy7"]
+
+[node name="Agent" type="CharacterBody3D"]
+script = ExtResource("1_4wgts")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_q4ap4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4sqy7")
+
+[node name="Camera_Controller" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
+transform = Transform3D(1, 0, 0, 0, 0.877665, 0.479274, 0, -0.479274, 0.877665, 0, 2.04841, 3.60508)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
+current = true

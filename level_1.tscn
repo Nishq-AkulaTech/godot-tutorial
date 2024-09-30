@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://5hmvo86kvhvr"]
+
+[ext_resource type="PackedScene" uid="uid://tnmqrqhwf8vq" path="res://block.tscn" id="1_ynyv2"]
+[ext_resource type="PackedScene" uid="uid://djn0jkehunl5y" path="res://agent.tscn" id="2_evqdr"]
+[ext_resource type="Texture2D" uid="uid://d6eomgrq1chl" path="res://icon.svg" id="3_05v5v"]
+[ext_resource type="Script" path="res://icon.gd" id="4_pe0d1"]
+[ext_resource type="PackedScene" uid="uid://c7mt04a3af7tt" path="res://coin.tscn" id="5_g8afi"]
+[ext_resource type="Environment" uid="uid://bo25tgbx1xuic" path="res://resources/level_1_env.tres" id="6_0d4jn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw3ch"]
+albedo_color = Color(0, 0.971658, 0.972048, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lcnyo"]
+material = SubResource("StandardMaterial3D_aw3ch")
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5nhv"]
+size = Vector3(100, 0.5, 100)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.233645, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_lcnyo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195313, 0, 0)
+shape = SubResource("BoxShape3D_c5nhv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.920599, -0.371015, 0.121838, -0.127126, 0.579736, 0.804826, -0.369237, 0.725434, -0.58087, -0.416012, 6.78584, -3.12246)
+shadow_enabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+transform = Transform3D(-0.890202, 0.0430782, -0.453525, -0.411504, -0.503164, 0.759928, -0.195462, 0.863117, 0.465644, -4.49242, 11.5926, -8.21822)
+light_color = Color(0.706132, 0.345724, 0.70927, 1)
+light_energy = 6.102
+light_indirect_energy = 12.636
+light_volumetric_fog_energy = 1.162
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="DirectionalLight3D"]
+transform = Transform3D(-0.761794, -0.104285, 0.63937, 0.524857, 0.479167, 0.703509, -0.37973, 0.871507, -0.310292, 5.13307, 7.74089, -7.39609)
+light_color = Color(0.956863, 0.215686, 0.129412, 1)
+light_energy = 2.829
+light_indirect_energy = 7.248
+light_angular_distance = 1.15
+
+[node name="Agent" parent="." instance=ExtResource("2_evqdr")]
+transform = Transform3D(0.989536, 0, 0.144287, 0, 1, 0, -0.144287, 0, 0.989536, -0.0476905, 0.717389, 3.97804)
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.733994, 0.0952708, 0.672441, -0.516412, 0.721355, 0.461482, -0.441103, -0.685981, 0.578669, 0, 5, -2.27844)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 3.09289, 0.651602)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 5.03918, 0)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 4.53524, 1.36844)
+
+[node name="Block5" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.548233, 0.352527, 0.758396, 0.637898, -0.410184, 0.651794, 0, 5.77824, 2.04448)
+
+[node name="Block6" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 4.43943, -1.12508)
+
+[node name="Block7" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.733994, 0.0952708, 0.672441, -0.516412, 0.721355, 0.461482, -0.441103, -0.685981, 0.578669, 0, 5, -2.27844)
+
+[node name="Block8" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 3.09289, 0.651602)
+
+[node name="Block9" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 5.03918, 0)
+
+[node name="Block10" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 4.53524, 1.36844)
+
+[node name="Block11" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.548233, 0.352527, 0.758396, 0.637898, -0.410184, 0.651794, 0, 5.77824, 2.04448)
+
+[node name="Block12" parent="Blocks" instance=ExtResource("1_ynyv2")]
+transform = Transform3D(0.540857, 0.841115, 0, -0.841115, 0.540857, 0, 0, 0, 1, 0, 4.43943, -1.12508)
+
+[node name="Icon" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996487, 0.0837474, 0, -0.0837474, 0.996487, 0, 1.26375, -4.67828)
+visible = false
+texture = ExtResource("3_05v5v")
+script = ExtResource("4_pe0d1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_0d4jn")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Coin1" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.72933, 0.35182, 3.3209)
+
+[node name="Coin2" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.89578, 1.2952, 6.77788)
+
+[node name="Coin3" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.14368, 0.35182, -0.836483)
+
+[node name="Coin4" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.47905, 1.50146, 3.3209)
+
+[node name="Coin5" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.19863, 1.81112, 0.793497)
+
+[node name="Coin6" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.14368, 0.35182, 6.2148)
+
+[node name="Coin7" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.44853, 0.35182, 3.3209)
+
+[node name="Coin8" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.16515, 1.682, 3.3209)
+
+[node name="Coin9" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin10" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin11" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin12" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin13" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin14" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin15" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
+
+[node name="Coin16" parent="Node3D" instance=ExtResource("5_g8afi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42024, 0.35182, 3.3209)
